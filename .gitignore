@@ -1,0 +1,135 @@
+int A=13;
+int B=12;
+int C=7;
+int D=10;
+int contador=0;
+int pul=0;
+int valor ;
+int motor=11;
+int unidades=9;
+int decenas=8;
+int contador_unidades;
+int contador_decenas;
+
+void setup() {
+  
+pinMode (A,OUTPUT);
+pinMode (B,OUTPUT);
+pinMode (C,OUTPUT);
+pinMode (D,OUTPUT);
+pinMode (unidades,OUTPUT);
+pinMode (decenas,OUTPUT);
+pinMode (motor,OUTPUT);
+
+}
+
+void loop() {
+  
+
+valor=analogRead(0);
+analogWrite(motor, valor/4);
+delay(5);
+  valor=map (valor, 0, 1023, 0, 100);   
+      contador_decenas=valor / 10;
+      digitalWrite(unidades,LOW);
+      digitalWrite(decenas,HIGH);
+      disp(contador_decenas);
+      delay(5);
+      contador_unidades=valor-(contador_decenas*10);
+      digitalWrite(unidades,HIGH);
+        digitalWrite(decenas,LOW);
+        disp(contador_unidades);
+        delay(5);
+    
+}
+  
+
+void disp (int numero)
+{
+     switch(numero)
+    {
+    case 0:
+    //0
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+    case 1:
+    //1
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+     case 2:
+     //2
+digitalWrite(A,LOW);
+digitalWrite(B,HIGH);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+    case 3:
+    
+//3
+digitalWrite(A,HIGH);
+digitalWrite(B,HIGH);
+digitalWrite(C,LOW);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+    case 4:
+    //4
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+    case 5:
+    //5
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+     case 6:
+     
+//6
+digitalWrite(A,LOW);
+digitalWrite(B,HIGH);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+    case 7:
+    //7
+digitalWrite(A,HIGH);
+digitalWrite(B,HIGH);
+digitalWrite(C,HIGH);
+digitalWrite(D,LOW);
+delay (5);
+    break; 
+     case 8:
+     //8
+digitalWrite(A,LOW);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,HIGH);
+delay (5);
+    break; 
+    case 9:
+    //9
+digitalWrite(A,HIGH);
+digitalWrite(B,LOW);
+digitalWrite(C,LOW);
+digitalWrite(D,HIGH);
+delay (5);
+    break; 
+    }
+}
+
